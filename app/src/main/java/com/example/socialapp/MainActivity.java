@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.socialapp.Fragment.HomeFragment;
 import com.example.socialapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content, new HomeFragment());
         transaction.commit();
 
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 switch (item.getItemId()) {
                     case R.id.nav_home:
+
                         break;
                     case R.id.nav_follow:
                         break;

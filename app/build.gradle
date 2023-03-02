@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.socialapp"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -51,7 +51,10 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.makeramen:roundedimageview:2.3.0'
-
+    implementation 'com.github.3llomi:CircularStatusView:V1.0.2'
+    implementation 'com.github.OMARIHAMZA:StoryView:1.0.2-alpha'
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
+    implementation 'com.github.MrNouri:DynamicSizes:1.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

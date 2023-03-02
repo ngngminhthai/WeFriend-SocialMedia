@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:diagonal="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/storyImg"
+        android:layout_width="@dimen/_85mdp"
+        android:layout_height="@dimen/_150mdp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.9"
+        android:scaleType="centerCrop"
+        android:src="@drawable/girl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="10dip" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/black_shade"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/storyImg"
+        app:layout_constraintEnd_toEndOf="@+id/storyImg"
+        app:layout_constraintStart_toStartOf="@+id/storyImg"
+        app:layout_constraintTop_toTopOf="@+id/storyImg" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:padding="4dp"
+        android:src="@drawable/girl"
+        app:layout_constraintStart_toStartOf="@+id/storyImg"
+        app:layout_constraintTop_toTopOf="@+id/storyImg"
+         />
+
+   <!-- <com.devlomi.circularstatusview.CircularStatusView
+        android:id="@+id/statusCircle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/white_circle"
+        app:layout_constraintBottom_toBottomOf="@id/profileImage"
+        app:layout_constraintEnd_toEndOf="@id/profileImage"
+        app:layout_constraintStart_toStartOf="@id/profileImage"
+        app:layout_constraintTop_toTopOf="@id/profileImage"
+        app:portion_color="@color/orange"
+        app:portion_spacing="5dp"
+        app:portion_width="2dp"
+        app:portions_count="10"/>-->
+
+    <!--<ImageView
+        android:id="@+id/storyType"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/storyImg"
+        app:layout_constraintTop_toTopOf="@+id/storyImg"
+        app:srcCompat="@drawable/ic_live" />-->
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif"
+        android:text="Nguyen Thuy Linh"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/storyImg"
+        app:layout_constraintStart_toStartOf="@+id/profileImage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

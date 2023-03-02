@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:src="@drawable/girl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/statusCircle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/orange_circle"
+        app:layout_constraintBottom_toBottomOf="@id/profileImage"
+        app:layout_constraintEnd_toEndOf="@id/profileImage"
+        app:layout_constraintStart_toStartOf="@id/profileImage"
+        app:layout_constraintTop_toTopOf="@id/profileImage" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto_black"
+        android:text="Nguyen Thuy Linh"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage"
+        app:layout_constraintVertical_bias="0.120000005" />
+
+    <TextView
+        android:id="@+id/bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Traveler, life Lover"
+        app:layout_constraintStart_toStartOf="@+id/userName"
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/profileImage"
+        app:srcCompat="@drawable/ic_more" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/postImage"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0.9"
+        android:scaleType="centerCrop"
+        android:src="@drawable/girl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/profileImage"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage"
+        app:riv_corner_radius="5dip" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/black_shade"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/storyImg"
+        app:layout_constraintEnd_toEndOf="@+id/storyImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/storyImg" />
+
+    <ImageView
+        android:id="@+id/saveImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/postImage"
+        app:srcCompat="@drawable/ic_bookmark" />
+
+    <TextView
+        android:id="@+id/postDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postImage" />
+
+    <TextView
+        android:id="@+id/like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:drawableLeft="@drawable/ic_like"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="247"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/postImage"
+        app:layout_constraintTop_toBottomOf="@+id/postDescription" />
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:drawableLeft="@drawable/ic_chat"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="57"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/like"
+        app:layout_constraintStart_toEndOf="@+id/like"
+        app:layout_constraintTop_toTopOf="@+id/like" />
+
+    <TextView
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:drawableLeft="@drawable/ic_share"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/comment"
+        app:layout_constraintStart_toEndOf="@+id/comment"
+        app:layout_constraintTop_toTopOf="@+id/comment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
