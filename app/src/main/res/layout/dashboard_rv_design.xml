@@ -45,7 +45,7 @@
         android:id="@+id/bio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Traveler, life Lover"
+        android:text="2 hours ago"
         app:layout_constraintStart_toStartOf="@+id/userName"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
 
@@ -63,11 +63,12 @@
         android:id="@+id/postImage"
         android:layout_width="0dp"
         android:layout_height="180dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:alpha="0.9"
         android:scaleType="centerCrop"
         android:src="@drawable/girl"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/profileImage"
         app:layout_constraintTop_toBottomOf="@+id/profileImage"
         app:riv_corner_radius="5dip" />
@@ -93,7 +94,7 @@
         app:layout_constraintTop_toTopOf="@+id/postImage"
         app:srcCompat="@drawable/ic_bookmark" />
 
-    <TextView
+    <!--    <TextView
         android:id="@+id/postDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -104,14 +105,25 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postImage" />
+        app:layout_constraintTop_toBottomOf="@+id/postImage" />-->
+
+    <TextView
+        android:id="@+id/postDescription"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="TextView"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/postImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="192dp"
         android:drawableLeft="@drawable/ic_like"
         android:drawablePadding="10dp"
         android:gravity="center"
@@ -142,6 +154,7 @@
         android:drawableLeft="@drawable/ic_share"
         android:drawablePadding="10dp"
         android:gravity="center"
+        android:text="Share"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/comment"
         app:layout_constraintStart_toEndOf="@+id/comment"
