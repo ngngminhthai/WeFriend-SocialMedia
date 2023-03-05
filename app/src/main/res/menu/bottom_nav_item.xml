@@ -5,19 +5,19 @@
     <item
         android:id="@+id/nav_home"
         android:title="Home"
-        android:icon="@drawable/ic_home_1"/>
+        android:icon="@drawable/home"/>
     <item
         android:id="@+id/nav_follow"
         android:title="Add Post"
-        android:icon="@drawable/ic_add"/>
+        android:icon="@drawable/account_group_outline"/>
     <item
         android:id="@+id/nav_add"
         android:title="Users"
-        android:icon="@drawable/ic_contact_book"/>
+        android:icon="@drawable/television_play"/>
     <item
         android:id="@+id/nav_profile"
         android:title="Profile"
-        android:icon="@drawable/ic_man"/>
+        android:icon="@drawable/ic_notification"/>
     <item
         android:id="@+id/menu_profile2"
         android:title="Profile"

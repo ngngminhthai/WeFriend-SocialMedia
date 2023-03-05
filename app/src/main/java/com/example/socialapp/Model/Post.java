@@ -25,6 +25,11 @@ public class Post {
         this.postedAt = postedAt;
     }
 
+
+    public Post(String postDescription) {
+        this.postDescription = postDescription;
+    }
+
     public Post() {
     }
 
