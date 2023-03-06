@@ -58,32 +58,19 @@
                 app:layout_constraintStart_toStartOf="@id/profileImage"
                 app:layout_constraintTop_toTopOf="@id/profileImage" />
 
-            <View
-                android:id="@+id/view6"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/derkGrey"
-                app:layout_constraintBottom_toTopOf="@+id/profileImage2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
 
             <HorizontalScrollView
                 android:id="@+id/horizontal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="8dp"
                 android:fillViewport="true"
                 android:isScrollContainer="false"
                 android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view6">
+                app:layout_constraintTop_toBottomOf="@+id/profileImage2">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -92,9 +79,9 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/group"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_width="134dp"
+                        android:layout_height="match_parent"
+                        >
 
                         <com.makeramen.roundedimageview.RoundedImageView
                             android:id="@+id/storyImg"
@@ -133,12 +120,24 @@
                             app:layout_constraintStart_toStartOf="@+id/addStory"
                             app:layout_constraintTop_toTopOf="@+id/addStory" />
 
+                        <View
+                            android:id="@+id/statusCircleStory"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/orange_circle_white"
+                            app:layout_constraintBottom_toBottomOf="@id/addStory"
+                            app:layout_constraintEnd_toEndOf="@id/addStory"
+                            app:layout_constraintStart_toStartOf="@id/addStory"
+                            app:layout_constraintTop_toTopOf="@id/addStory"
+                            android:elevation="@dimen/_1mdp"
+                            />
                         <ImageView
                             android:id="@+id/addStory"
                             android:layout_width="@dimen/_30mdp"
                             android:layout_height="@dimen/_30mdp"
-                            android:background="@drawable/orange_circle"
+                            android:background="@drawable/orange_circle_white"
                             android:src="@drawable/plus"
+
                             app:layout_constraintBottom_toBottomOf="@+id/storyImg"
                             app:layout_constraintEnd_toEndOf="@+id/storyImg"
                             app:layout_constraintHorizontal_bias="0.507"
@@ -153,7 +152,8 @@
                         android:id="@+id/storyRV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
                         app:shimmer_demo_child_count="10"
                         app:shimmer_demo_layout="@layout/demo_story">
@@ -202,14 +202,14 @@
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="318dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginBottom="12dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="What are you thinking ?"
+                android:text="    What are you thinking ?"
+                android:textColor="@color/blue"
+                android:background="@drawable/edit_round"
                 app:layout_constraintBottom_toTopOf="@+id/horizontal"
-                app:layout_constraintStart_toEndOf="@+id/profileImage2"
-                app:layout_constraintTop_toTopOf="@+id/view6"
-                app:layout_constraintVertical_bias="0.692" />
+                app:layout_constraintStart_toEndOf="@+id/profileImage2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

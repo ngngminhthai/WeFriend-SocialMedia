@@ -6,25 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/bottom_nav_item"
+        tools:layout_editor_absoluteX="0dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+
+
+        </FrameLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/orange_circle"
+            android:padding="4dp"
+            android:src="@drawable/girl" />
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="410dp"
+        android:layout_height="672dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_item" />
+        app:layout_constraintTop_toBottomOf="@+id/bottomNav">
+
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

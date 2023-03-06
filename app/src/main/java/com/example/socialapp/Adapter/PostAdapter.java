@@ -14,6 +14,7 @@ import com.example.socialapp.Model.Post;
 import com.example.socialapp.Model.User;
 import com.example.socialapp.R;
 import com.example.socialapp.databinding.DashboardRvDesignBinding;
+import com.example.socialapp.databinding.StoryRvDesignBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

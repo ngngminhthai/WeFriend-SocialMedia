@@ -2,19 +2,26 @@ package com.example.socialapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.socialapp.Fragment.HomeFragment;
+import com.example.socialapp.Model.Post;
 import com.example.socialapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,15 +41,18 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
 
+
         binding.bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 switch (item.getItemId()) {
                     case R.id.nav_home:
-
+                        transaction.replace(R.id.content, new HomeFragment());
+                        transaction.commit();
                         break;
                     case R.id.nav_follow:
+
                         break;
                     case R.id.nav_add:
                         break;
@@ -58,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
 
+        database.getReference("posts").push().setValue(new Post("Hello Kitty"));
 
     }
 

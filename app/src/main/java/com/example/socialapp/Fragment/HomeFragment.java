@@ -103,13 +103,12 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true);
         storyRV.setLayoutManager(layoutManager);
         storyRV.setNestedScrollingEnabled(false);
-
-        Story story = new Story();
+       /* Story story = new Story();
         story.setStoryBy("Jack");
         story.setStoryAt(System.currentTimeMillis());
 
         ArrayList<UserStories> userStories = new ArrayList<>();
-        UserStories mountainStory = new UserStories("mountain.jpg", System.currentTimeMillis());
+        UserStories mountainStory = new UserStories("https://firebasestorage.googleapis.com/v0/b/prm392-cc940.appspot.com/o/girl.jpg?alt=media&token=e01a1f80-d479-4c27-80fa-9a0a6664c660", System.currentTimeMillis());
         userStories.add(mountainStory);
 
         story.setStories(userStories);
@@ -121,7 +120,7 @@ public class HomeFragment extends Fragment {
         story2.setStoryAt(System.currentTimeMillis());
 
         ArrayList<UserStories> userStories2 = new ArrayList<>();
-        UserStories loveStory = new UserStories("lovestory.mp4", System.currentTimeMillis());
+        UserStories loveStory = new UserStories("https://firebasestorage.googleapis.com/v0/b/prm392-cc940.appspot.com/o/girl.jpg?alt=media&token=e01a1f80-d479-4c27-80fa-9a0a6664c660", System.currentTimeMillis());
         userStories2.add(loveStory);
 
         story2.setStories(userStories2);
@@ -129,9 +128,9 @@ public class HomeFragment extends Fragment {
 
         storyRV.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        storyRV.hideShimmerAdapter();
+        storyRV.hideShimmerAdapter();*/
 
-        /*database.getReference()
+        database.getReference()
                 .child("stories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -161,7 +160,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         //group.setVisibility(View.VISIBLE);
 
@@ -177,9 +176,9 @@ public class HomeFragment extends Fragment {
         dashboardRV.setNestedScrollingEnabled(false);
 
 
-        Post newPost = new Post("1", "sunset.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
-        Post newPost2 = new Post("1", "sunset.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
-        Post newPost3 = new Post("1", "sunset.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
+        Post newPost = new Post("1", "res/drawable-v24/girl.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
+        Post newPost2 = new Post("1", "drawable-v24/girl.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
+        Post newPost3 = new Post("1", "girl", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
         postList.add(newPost);
         postList.add(newPost2);
         postList.add(newPost3);

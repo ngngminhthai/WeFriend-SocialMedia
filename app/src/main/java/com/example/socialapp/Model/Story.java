@@ -8,6 +8,7 @@ public class Story {
     private long storyAt;
     ArrayList<UserStories> stories;
 
+
     public Story() {
     }
 

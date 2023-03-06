@@ -11,8 +11,8 @@
 
         <View
             android:id="@+id/view24"
-            android:layout_width="@dimen/_130mdp"
-            android:layout_height="@dimen/_85mdp"
+            android:layout_width="@dimen/_85mdp"
+            android:layout_height="@dimen/_150mdp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/demo_round_10"
             android:backgroundTint="#EFEFEF"

@@ -61,17 +61,17 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.viewHolder> 
                     .child(story.getStoryBy()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    /*User user = snapshot.getValue(User.class);
+                    User user = snapshot.getValue(User.class);
                     Picasso.get()
                             .load(user.getProfile())
                             .placeholder(R.drawable.placeholder)
                             .into(holder.binding.profileImage);
-                    holder.binding.name.setText(user.getName());*/
+                    holder.binding.name.setText(user.getName());
 
                     holder.binding.storyImg.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            /*ArrayList<MyStory> myStories = new ArrayList<>();
+                            ArrayList<MyStory> myStories = new ArrayList<>();
 
                             for (UserStories stories : story.getStories()) {
                                 myStories.add(new MyStory(
@@ -96,7 +96,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.viewHolder> 
                                         }
                                     }) // Optional Listeners
                                     .build() // Must be called before calling show method
-                                    .show();*/
+                                    .show();
                         }
                     });
                 }
