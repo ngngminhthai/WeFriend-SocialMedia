@@ -176,7 +176,7 @@ public class HomeFragment extends Fragment {
         dashboardRV.setNestedScrollingEnabled(false);
 
 
-        Post newPost = new Post("1", "res/drawable-v24/girl.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
+        /*Post newPost = new Post("1", "res/drawable-v24/girl.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
         Post newPost2 = new Post("1", "drawable-v24/girl.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
         Post newPost3 = new Post("1", "girl", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
         postList.add(newPost);
@@ -184,8 +184,9 @@ public class HomeFragment extends Fragment {
         postList.add(newPost3);
         dashboardRV.setAdapter(postAdapter);
         dashboardRV.hideShimmerAdapter();
-        postAdapter.notifyDataSetChanged();
-        /*database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
+        postAdapter.notifyDataSetChanged();*/
+
+        database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 postList.clear();
@@ -203,7 +204,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         addStoryImage = view.findViewById(R.id.storyImg);
         addStoryImage.setOnClickListener(new View.OnClickListener() {
