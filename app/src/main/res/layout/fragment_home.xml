@@ -79,9 +79,9 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/group"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_width="134dp"
+                        android:layout_height="match_parent"
+                        >
 
                         <com.makeramen.roundedimageview.RoundedImageView
                             android:id="@+id/storyImg"
@@ -124,8 +124,9 @@
                             android:id="@+id/addStory"
                             android:layout_width="@dimen/_30mdp"
                             android:layout_height="@dimen/_30mdp"
-                            android:background="@drawable/orange_circle"
+                            android:background="@drawable/orange_circle_white"
                             android:src="@drawable/plus"
+
                             app:layout_constraintBottom_toBottomOf="@+id/storyImg"
                             app:layout_constraintEnd_toEndOf="@+id/storyImg"
                             app:layout_constraintHorizontal_bias="0.507"
@@ -140,7 +141,8 @@
                         android:id="@+id/storyRV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
                         app:shimmer_demo_child_count="10"
                         app:shimmer_demo_layout="@layout/demo_story">
@@ -192,7 +194,9 @@
                 android:layout_marginBottom="12dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="What are you thinking ?"
+                android:text="    What are you thinking ?"
+                android:textColor="@color/blue"
+                android:background="@drawable/edit_round"
                 app:layout_constraintBottom_toTopOf="@+id/horizontal"
                 app:layout_constraintStart_toEndOf="@+id/profileImage2" />
 

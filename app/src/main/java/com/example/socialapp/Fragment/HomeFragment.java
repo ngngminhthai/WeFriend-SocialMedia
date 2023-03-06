@@ -103,7 +103,7 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true);
         storyRV.setLayoutManager(layoutManager);
         storyRV.setNestedScrollingEnabled(false);
-        Story story = new Story();
+       /* Story story = new Story();
         story.setStoryBy("Jack");
         story.setStoryAt(System.currentTimeMillis());
 
@@ -128,9 +128,9 @@ public class HomeFragment extends Fragment {
 
         storyRV.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        storyRV.hideShimmerAdapter();
+        storyRV.hideShimmerAdapter();*/
 
-        /*database.getReference()
+        database.getReference()
                 .child("stories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -160,7 +160,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         //group.setVisibility(View.VISIBLE);
 
