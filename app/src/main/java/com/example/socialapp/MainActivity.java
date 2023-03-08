@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.example.socialapp.Fragment.ChatFragment;
 import com.example.socialapp.Fragment.HomeFragment;
+import com.example.socialapp.Fragment.SearchFragment;
 import com.example.socialapp.Model.Post;
 import com.example.socialapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.content, new ChatFragment());
                         break;
                     case R.id.nav_add:
+                        // Test SearchFragement : Để tạm thôi
+                        transaction.replace(R.id.content, new SearchFragment());
                         break;
                     case R.id.nav_profile:
                         break;
