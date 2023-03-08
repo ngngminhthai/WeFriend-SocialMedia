@@ -63,14 +63,15 @@
         android:id="@+id/postImage"
         android:layout_width="0dp"
         android:layout_height="180dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="5dp"
         android:alpha="0.9"
         android:scaleType="centerCrop"
         android:src="@drawable/girl"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/profileImage"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage"
+        app:layout_constraintTop_toBottomOf="@+id/postDescription"
         app:riv_corner_radius="5dip" />
 
     <View
@@ -110,28 +111,30 @@
 
     <TextView
         android:id="@+id/postDescription"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/postImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
     <TextView
         android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="12dp"
         android:drawableLeft="@drawable/ic_like"
         android:drawablePadding="10dp"
         android:gravity="center"
         android:text="247"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/postImage"
-        app:layout_constraintTop_toBottomOf="@+id/postDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/postImage" />
 
     <TextView
         android:id="@+id/comment"

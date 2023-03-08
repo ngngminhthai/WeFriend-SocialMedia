@@ -17,7 +17,7 @@
 
         <EditText
             android:id="@+id/text_send"
-            android:layout_width="353dp"
+            android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/btn_send"
@@ -35,5 +35,12 @@
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="663dp"
+        android:layout_above="@+id/bottom"
+        android:layout_marginBottom="11dp" />
 
 </RelativeLayout>
