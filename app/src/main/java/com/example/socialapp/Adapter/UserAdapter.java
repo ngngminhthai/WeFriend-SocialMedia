@@ -4,49 +4,57 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.socialapp.Model.User;
 import com.example.socialapp.R;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.socialapp.databinding.UserSampleBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Date;
 
-//public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
-//
-//    Context context;
-//    ArrayList<User> list;
-//
-//    public UserAdapter(Context context, ArrayList<User> list) {
-//        this.context = context;
-//        this.list = list;
-//    }
-//
-//
-//    @NonNull
-//    @Override
-//    public UserAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull UserAdapter.viewHolder holder, int position) {
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return 0;
-//    }
-//}
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
+
+    Context context;
+    ArrayList<User> list;
+
+    public UserAdapter(Context context, ArrayList<User> list) {
+        this.context = context;
+        this.list = list;
+    }
+
+    @NonNull
+    @Override
+    public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.user_sample, parent, false);
+        return new viewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
+        User user = list.get(position);
+        Picasso.get()
+                .load(user.getProfile())
+                .placeholder(R.drawable.placeholder)
+                .into(holder.binding.profileImage);
+        holder.binding.name.setText(user.getName());
+        holder.binding.profession.setText(user.getProfession());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public class viewHolder extends RecyclerView.ViewHolder {
+        UserSampleBinding binding;
+
+        public viewHolder(@NonNull View itemView) {
+            super(itemView);
+            binding = UserSampleBinding.bind(itemView);
+        }
+    }
+}
