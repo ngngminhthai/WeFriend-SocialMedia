@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:layout_marginTop="20dp"
     tools:context=".Fragment.SearchFragment">
 
     <TextView
@@ -12,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Add People"
+        android:layout_marginTop="25dp"
+        android:text="Friends"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -24,9 +25,10 @@
         android:id="@+id/view10"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -36,8 +38,37 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view10"
-        app:shimmer_demo_child_count="10"/>
+        app:layout_constraintVertical_bias="0.0"
+        app:shimmer_demo_child_count="10" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="204dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/edit_round"
+        android:ems="10"
+        android:hint="  Searching..."
+        android:inputType="textPersonName"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toTopOf="@+id/view10"
+        app:layout_constraintEnd_toStartOf="@+id/addImg"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/addImg"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/iconsearch"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

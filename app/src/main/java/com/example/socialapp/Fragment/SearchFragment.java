@@ -32,6 +32,8 @@ public class SearchFragment extends Fragment {
 
     public SearchFragment() {
         // Required empty public constructor
+        // Add logic search fragement
+
     }
 
     @Override
