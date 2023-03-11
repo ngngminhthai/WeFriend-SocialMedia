@@ -164,7 +164,7 @@
 
             <EditText
                 android:id="@+id/editTextTextPersonName"
-                android:layout_width="247dp"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/edit_round"
@@ -179,6 +179,7 @@
                 android:id="@+id/addImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="4dp"
                 android:src="@drawable/ic_image_1"
                 app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
