@@ -24,7 +24,7 @@
     <View
         android:id="@+id/view10"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:layout_marginTop="30dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
         app:shimmer_demo_child_count="10" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/keywordSearch"
         android:layout_width="204dp"
         android:layout_height="48dp"
         android:layout_marginStart="51dp"
@@ -54,6 +54,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/edit_round"
         android:ems="10"
+        android:paddingLeft="15dp"
         android:hint="  Searching..."
         android:inputType="textPersonName"
         android:textColor="@color/blue"
@@ -63,12 +64,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/addImg"
+        android:id="@+id/searchFriend"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="4dp"
         android:src="@drawable/iconsearch"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
+        app:layout_constraintBottom_toBottomOf="@+id/keywordSearch"
+        app:layout_constraintStart_toEndOf="@+id/keywordSearch" />
+
+    <Button
+        android:id="@+id/buttona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="174dp"
+        android:layout_marginEnd="23dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/usersRV"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

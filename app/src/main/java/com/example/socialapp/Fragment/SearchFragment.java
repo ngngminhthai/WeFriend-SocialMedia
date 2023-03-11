@@ -1,15 +1,21 @@
 package com.example.socialapp.Fragment;
 
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.socialapp.Adapter.UserAdapter;
 import com.example.socialapp.Model.User;
 import com.example.socialapp.R;
@@ -29,11 +35,12 @@ public class SearchFragment extends Fragment {
     ArrayList<User> list = new ArrayList<>();
     FirebaseAuth auth;
     FirebaseDatabase database;
+    ImageView iv_searchFriend;
+    ShimmerRecyclerView usersRV;
+    TextView keywordSearch;
 
     public SearchFragment() {
         // Required empty public constructor
-        // Add logic search fragement
-
     }
 
     @Override
@@ -48,13 +55,15 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentSearchBinding.inflate(inflater, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-
-        binding.usersRV.showShimmerAdapter();
+        usersRV = view.findViewById(R.id.usersRV);
+        usersRV.showShimmerAdapter();
 
         UserAdapter adapter =new UserAdapter(getContext(), list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        binding.usersRV.setLayoutManager(layoutManager);
+        usersRV.setLayoutManager(layoutManager);
 
 
         database.getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -68,9 +77,9 @@ public class SearchFragment extends Fragment {
                         list.add(user);
                     }
                 }
-                binding.usersRV.setAdapter(adapter);
+                usersRV.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-                binding.usersRV.hideShimmerAdapter();
+                usersRV.hideShimmerAdapter();
             }
 
             @Override
@@ -78,7 +87,37 @@ public class SearchFragment extends Fragment {
 
             }
         });
+        // Click button search
+        keywordSearch = view.findViewById(R.id.keywordSearch);
+        iv_searchFriend = view.findViewById(R.id.searchFriend);
+        iv_searchFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String valueSearch = keywordSearch.getText().toString().trim();
+                database.getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            User user = dataSnapshot.getValue(User.class);
+                            user.setUserID(dataSnapshot.getKey());
+                            if (!dataSnapshot.getKey().equals(FirebaseAuth.getInstance().getUid())
+                                    && user.getName().toLowerCase().contains(valueSearch.toLowerCase())){
+                                list.add(user);
+                            }
+                        }
+                        usersRV.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                        usersRV.hideShimmerAdapter();
+                    }
 
-        return binding.getRoot();
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
+        return view;
     }
 }
