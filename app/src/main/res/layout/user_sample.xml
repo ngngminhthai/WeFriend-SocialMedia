@@ -65,4 +65,16 @@
         diagonal:layout_constraintEnd_toEndOf="parent"
         diagonal:layout_constraintTop_toTopOf="@+id/profileImage" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="41dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/followBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        diagonal:srcCompat="@drawable/ic_chat" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
