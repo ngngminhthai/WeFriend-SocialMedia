@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.example.socialapp.Fragment.ChatFragment;
 import com.example.socialapp.Fragment.HomeFragment;
+import com.example.socialapp.Fragment.NotificationFragment;
 import com.example.socialapp.Fragment.SearchFragment;
 import com.example.socialapp.Model.Post;
 import com.example.socialapp.databinding.ActivityMainBinding;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_add:
                         break;
                     case R.id.nav_profile:
+                        transaction.replace(R.id.content, new NotificationFragment());
                         break;
                 }
                 transaction.commit();
