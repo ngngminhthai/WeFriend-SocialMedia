@@ -7,6 +7,54 @@
     android:clipToPadding="false"
     android:focusableInTouchMode="true">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage2"
+            android:layout_width="61dp"
+            android:layout_height="56dp"
+
+            android:padding="4dp"
+            android:src="@drawable/girl"
+         />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/blue"
+                android:text="Nguyen Thuy Linh"
+                android:textStyle="bold">
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:text="2 hours ago">
+            </TextView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/messages_view"
@@ -20,6 +68,15 @@
         android:layout_height="wrap_content"
         android:background="#fff"
         android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ic_image_1">
+
+        </ImageButton>
 
         <EditText
             android:id="@+id/text_send2"
