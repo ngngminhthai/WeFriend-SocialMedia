@@ -8,17 +8,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SocialApp">
+
+
+        <activity android:name="com.example.socialapp.SignUpActivity"/>
+
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/Theme.SocialApp.NoActionBar" />
+
         <activity
             android:name=".ChatActivity"
             android:exported="false">
-     <!--       <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />-->
+                android:value="" />
         </activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".LoginActivity">

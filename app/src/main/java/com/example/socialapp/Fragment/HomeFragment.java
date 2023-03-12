@@ -1,11 +1,17 @@
 package com.example.socialapp.Fragment;
 
 import android.app.ProgressDialog;
+
+import android.content.Intent;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.ImageView;
+
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -24,6 +30,9 @@ import com.example.socialapp.Adapter.StoryAdapter;
 import com.example.socialapp.Model.Post;
 import com.example.socialapp.Model.Story;
 import com.example.socialapp.Model.UserStories;
+
+import com.example.socialapp.ProfileActivity;
+
 import com.example.socialapp.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -57,6 +66,9 @@ public class HomeFragment extends Fragment {
     ConstraintLayout group;
     NestedScrollView scrollView;
 
+    ImageView imageProfile;
+
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -84,6 +96,8 @@ public class HomeFragment extends Fragment {
         dashboardRV.showShimmerAdapter();
         storyRV.showShimmerAdapter();
         group = view.findViewById(R.id.group);
+
+        imageProfile = view.findViewById(R.id.profileImage2);
 
 
         database = FirebaseDatabase.getInstance();
@@ -129,6 +143,7 @@ public class HomeFragment extends Fragment {
         storyRV.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         storyRV.hideShimmerAdapter();*/
+
 
         database.getReference()
                 .child("stories").addValueEventListener(new ValueEventListener() {
@@ -205,6 +220,16 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
+        imageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), ProfileActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         addStoryImage = view.findViewById(R.id.storyImg);
         addStoryImage.setOnClickListener(new View.OnClickListener() {
