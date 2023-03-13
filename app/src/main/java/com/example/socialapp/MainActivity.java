@@ -16,6 +16,7 @@ import com.example.socialapp.Fragment.AddPostFragment;
 import com.example.socialapp.Fragment.ChatFragment;
 import com.example.socialapp.Fragment.HomeFragment;
 import com.example.socialapp.Fragment.NotificationFragment;
+import com.example.socialapp.Fragment.Profile2Fragment;
 import com.example.socialapp.Fragment.SearchFragment;
 import com.example.socialapp.Model.Post;
 import com.example.socialapp.databinding.ActivityMainBinding;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.content, new HomeFragment());
                         break;
                     case R.id.nav_follow:
-                        transaction.replace(R.id.content, new AddPostFragment());
+                        transaction.replace(R.id.content, new Profile2Fragment());
                         break;
                     case R.id.nav_add:
                         break;
