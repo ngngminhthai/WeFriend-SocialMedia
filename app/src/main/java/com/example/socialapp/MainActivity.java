@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.socialapp.Fragment.AddPostFragment;
 import com.example.socialapp.Fragment.ChatFragment;
 import com.example.socialapp.Fragment.HomeFragment;
 import com.example.socialapp.Fragment.NotificationFragment;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.content, new HomeFragment());
                         break;
                     case R.id.nav_follow:
-                        transaction.replace(R.id.content, new SearchFragment());
+                        transaction.replace(R.id.content, new AddPostFragment());
                         break;
                     case R.id.nav_add:
                         break;
