@@ -103,33 +103,6 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true);
         storyRV.setLayoutManager(layoutManager);
         storyRV.setNestedScrollingEnabled(false);
-       /* Story story = new Story();
-        story.setStoryBy("Jack");
-        story.setStoryAt(System.currentTimeMillis());
-
-        ArrayList<UserStories> userStories = new ArrayList<>();
-        UserStories mountainStory = new UserStories("https://firebasestorage.googleapis.com/v0/b/prm392-cc940.appspot.com/o/girl.jpg?alt=media&token=e01a1f80-d479-4c27-80fa-9a0a6664c660", System.currentTimeMillis());
-        userStories.add(mountainStory);
-
-        story.setStories(userStories);
-        storyList.add(story);
-
-
-        Story story2 = new Story();
-        story2.setStoryBy("John");
-        story2.setStoryAt(System.currentTimeMillis());
-
-        ArrayList<UserStories> userStories2 = new ArrayList<>();
-        UserStories loveStory = new UserStories("https://firebasestorage.googleapis.com/v0/b/prm392-cc940.appspot.com/o/girl.jpg?alt=media&token=e01a1f80-d479-4c27-80fa-9a0a6664c660", System.currentTimeMillis());
-        userStories2.add(loveStory);
-
-        story2.setStories(userStories2);
-        storyList.add(story2);
-
-        storyRV.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        storyRV.hideShimmerAdapter();*/
-
         database.getReference()
                 .child("stories").addValueEventListener(new ValueEventListener() {
             @Override
@@ -174,17 +147,7 @@ public class HomeFragment extends Fragment {
         dashboardRV.setLayoutManager(linearLayoutManager);
         dashboardRV.addItemDecoration(new DividerItemDecoration(dashboardRV.getContext(), DividerItemDecoration.VERTICAL));
         dashboardRV.setNestedScrollingEnabled(false);
-
-
-        /*Post newPost = new Post("1", "res/drawable-v24/girl.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
-        Post newPost2 = new Post("1", "drawable-v24/girl.jpg", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
-        Post newPost3 = new Post("1", "girl", "Amy Jones", "Beautiful sunset over the ocean", System.currentTimeMillis());
-        postList.add(newPost);
-        postList.add(newPost2);
-        postList.add(newPost3);
-        dashboardRV.setAdapter(postAdapter);
-        dashboardRV.hideShimmerAdapter();
-        postAdapter.notifyDataSetChanged();*/
+        
 
         database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
             @Override
