@@ -62,7 +62,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
         }
 
 
-        FirebaseDatabase.getInstance().getReference().child("Users")
+        /*FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(model.getPostedBy()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -79,7 +79,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
         FirebaseDatabase.getInstance().getReference()
                 .child("posts")
