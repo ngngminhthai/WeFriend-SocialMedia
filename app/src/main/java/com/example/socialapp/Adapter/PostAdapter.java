@@ -61,7 +61,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
         }
 
 
-        /*FirebaseDatabase.getInstance().getReference().child("Users")
+        FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(model.getPostedBy()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,14 +71,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
                         .placeholder(R.drawable.placeholder)
                         .into(holder.binding.profileImage);
                 holder.binding.userName.setText(user.getName());
-                holder.binding.bio.setText(user.getProfession());
+                //holder.binding.bio.setText(user.getProfession());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         FirebaseDatabase.getInstance().getReference()
                 .child("posts")
@@ -88,7 +88,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                /*if (snapshot.exists()){
+                if (snapshot.exists()){
                     holder.binding.like.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_heart_2, 0, 0, 0);
                 }else {
                     holder.binding.like.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +131,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
 
                         }
                     });
-                }*/
+                }
             }
 
             @Override
