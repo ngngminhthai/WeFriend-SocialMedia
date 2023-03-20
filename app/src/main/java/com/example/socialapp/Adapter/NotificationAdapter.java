@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.socialapp.CommentActivity;
 import com.example.socialapp.Model.User;
 
 import androidx.annotation.NonNull;
@@ -99,28 +100,28 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 });
 
         // Chờ Activity Comment
-//        holder.binding.openNotification.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                if (!type.equals("follow")){
-//
-//                    FirebaseDatabase.getInstance().getReference()
-//                            .child("notification")
-//                            .child(notification.getPostedBy())
-//                            .child(notification.getNotificationID())
-//                            .child("checkOpen")
-//                            .setValue(true);
-//                    holder.binding.openNotification.setBackgroundColor(Color.parseColor("#FFFFFF"));
-//                    Intent intent = new Intent(context, CommentActivity.class);
-//                    intent.putExtra("postId", notification.getPostID());
-//                    intent.putExtra("postedBy", notification.getPostedBy());
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    context.startActivity(intent);
-//                }
-//
-//            }
-//        });
+        holder.binding.openNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!type.equals("follow")){
+
+                    FirebaseDatabase.getInstance().getReference()
+                            .child("notification")
+                            .child(notification.getPostedBy())
+                            .child(notification.getNotificationID())
+                            .child("checkOpen")
+                            .setValue(true);
+                    holder.binding.openNotification.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                    Intent intent = new Intent(context, CommentActivity.class);
+                    intent.putExtra("postId", notification.getPostID());
+                    intent.putExtra("postedBy", notification.getPostedBy());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+
+            }
+        });
         Boolean checkOpen = notification.isCheckOpen();
         if (checkOpen == true){
             holder.binding.openNotification.setBackgroundColor(Color.parseColor("#FFFFFF"));
