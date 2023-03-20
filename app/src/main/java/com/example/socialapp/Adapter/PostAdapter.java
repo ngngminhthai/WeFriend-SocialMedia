@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.socialapp.CommentActivity;
 import com.example.socialapp.Model.Notification;
 import com.example.socialapp.Model.Post;
 import com.example.socialapp.Model.User;
@@ -143,11 +144,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
         holder.binding.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(context, CommentActivity.class);
+                Intent intent = new Intent(context, CommentActivity.class);
                 intent.putExtra("postId", model.getPostId());
                 intent.putExtra("postedBy", model.getPostedBy());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);*/
+                context.startActivity(intent);
             }
         });
     }

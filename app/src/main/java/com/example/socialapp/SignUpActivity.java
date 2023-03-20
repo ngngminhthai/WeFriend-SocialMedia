@@ -39,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            User user = new User(binding.name.getText().toString(),email,password);
+                            com.example.socialapp.User user = new User(binding.name.getText().toString(),email,password);
                             String id = task.getResult().getUser().getUid();
                             database.getReference().child("Users").child(id).setValue(user);
                             Toast.makeText(SignUpActivity.this, "Sign Up Successfully" + id, Toast.LENGTH_SHORT).show();
