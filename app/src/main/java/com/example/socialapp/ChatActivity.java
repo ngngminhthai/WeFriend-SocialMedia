@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.socialapp.Adapter.MessageAdapter;
@@ -24,10 +25,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -50,6 +54,21 @@ public class ChatActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         mchat = new ArrayList<>();
 
+
+        String receiver = getIntent().getStringExtra("receiver");
+        String imageUrl = getIntent().getStringExtra("imageUrl");
+        String username = getIntent().getStringExtra("username");
+        TextView user_name_title = (TextView) findViewById(R.id.user_name2);
+        CircleImageView user_avatar = (CircleImageView) findViewById(R.id.profileImage2);
+        Picasso.get()
+                .load(imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .into(user_avatar);
+
+        user_name_title.setText(username);
+
+
+
         database.getReference()
                 .child("Chats").addValueEventListener(new ValueEventListener() {
                     @Override
@@ -58,10 +77,13 @@ public class ChatActivity extends AppCompatActivity {
                             mchat.clear();
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 Chat chat = dataSnapshot.getValue(Chat.class);
-                                mchat.add(chat);
+                                if (chat.getReceiver().equals(auth.getUid()) && chat.getSender().equals(receiver) ||
+                                        chat.getReceiver().equals(receiver) && chat.getSender().equals(auth.getUid())){
+                                    mchat.add(chat);
+                                }
                             }
                             // Initialize adapter and set up recyclerView
-                            MessageAdapter adapter = new MessageAdapter(ChatActivity.this, mchat, "girl.jpg");
+                            MessageAdapter adapter = new MessageAdapter(ChatActivity.this, mchat, imageUrl, username);
                             LinearLayoutManager layoutManager = new LinearLayoutManager(ChatActivity.this, LinearLayoutManager.VERTICAL, false);
                             recyclerView = findViewById(R.id.messages_view);
                             recyclerView.setLayoutManager(layoutManager);
@@ -84,7 +106,7 @@ public class ChatActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMessage(FirebaseAuth.getInstance().getUid(), "GcKPiLJjG1X9VxMPwPx1qj0gCZx2", editText.getText().toString());
+                sendMessage(FirebaseAuth.getInstance().getUid(), receiver, editText.getText().toString());
                 Toast.makeText(getApplicationContext(), "Message sent: " + editText.getText(), Toast.LENGTH_SHORT).show();
             }
         });

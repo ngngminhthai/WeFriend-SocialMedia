@@ -147,7 +147,7 @@ public class HomeFragment extends Fragment {
         dashboardRV.setLayoutManager(linearLayoutManager);
         dashboardRV.addItemDecoration(new DividerItemDecoration(dashboardRV.getContext(), DividerItemDecoration.VERTICAL));
         dashboardRV.setNestedScrollingEnabled(false);
-        
+
 
         database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
             @Override

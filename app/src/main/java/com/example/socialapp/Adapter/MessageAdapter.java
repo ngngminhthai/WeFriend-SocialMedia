@@ -1,5 +1,6 @@
 package com.example.socialapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import android.view.LayoutInflater;
@@ -15,9 +16,14 @@ import com.example.socialapp.Model.Chat;
 import com.example.socialapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.makeramen.roundedimageview.RoundedImageView;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
 
@@ -27,13 +33,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     private Context mContext;
     private List<Chat> mChat;
     private String imageurl;
+    private String userName;
 
     FirebaseUser fuser;
 
-    public MessageAdapter(Context mContext, List<Chat> mChat, String imageurl){
+    public MessageAdapter(Context mContext, List<Chat> mChat, String imageurl, String userName){
         this.mChat = mChat;
         this.mContext = mContext;
         this.imageurl = imageurl;
+        this.userName = userName;
     }
 
     @NonNull
@@ -48,12 +56,22 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     @Override
     public void onBindViewHolder(@NonNull MessageAdapter.ViewHolder holder, int position) {
 
         Chat chat = mChat.get(position);
 
+
         holder.show_message.setText(chat.getMessage());
+        if(!FirebaseAuth.getInstance().getUid().equals(chat.getSender())) {
+            Picasso.get()
+                    .load(imageurl)
+                    .placeholder(R.drawable.placeholder)
+                    .into(holder.user_avatar);
+            holder.user_name.setText(userName);
+        }
+
 
         if (imageurl.equals("default")){
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
@@ -84,12 +102,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         public ImageView profile_image;
         public TextView txt_seen;
 
+        public CircleImageView user_avatar;
+        public TextView user_name;
+
         public ViewHolder(View itemView) {
             super(itemView);
 
             show_message = itemView.findViewById(R.id.show_message);
             profile_image = itemView.findViewById(R.id.profile_image);
             txt_seen = itemView.findViewById(R.id.txt_seen);
+            user_avatar = itemView.findViewById(R.id.avatar);
+            user_name = itemView.findViewById(R.id.name);
         }
     }
 

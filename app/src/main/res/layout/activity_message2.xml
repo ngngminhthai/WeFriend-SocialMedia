@@ -8,36 +8,31 @@
     android:focusableInTouchMode="true">
 
     <LinearLayout
+        android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-
         >
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileImage2"
             android:layout_width="61dp"
             android:layout_height="56dp"
-
             android:padding="4dp"
-            android:src="@drawable/girl"
-            />
+            android:src="@drawable/girl" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/user_name2"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/blue"
-                android:text="Nguyen Thuy Linh"
-                android:textStyle="bold">
-            </TextView>
+                android:textStyle="bold"></TextView>
 
 
             <TextView
@@ -45,9 +40,8 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:text="2 hours ago">
-            </TextView>
+                android:text="2 hours ago"
+                android:textColor="@color/black"></TextView>
 
 
         </LinearLayout>

@@ -156,7 +156,7 @@
                 android:layout_width="61dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:padding="4dp"
                 android:src="@drawable/girl"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,8 +164,9 @@
 
             <EditText
                 android:id="@+id/editTextTextPersonName"
-                android:layout_width="270dp"
-                android:layout_height="48dp"
+                android:layout_width="314dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/edit_round"
                 android:ems="10"
@@ -173,17 +174,8 @@
                 android:text="    What are you thinking ?"
                 android:textColor="@color/blue"
                 app:layout_constraintBottom_toBottomOf="@+id/profileImage2"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/profileImage2" />
-
-            <ImageView
-                android:id="@+id/addImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="4dp"
-                android:src="@drawable/ic_image_1"
-                app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-                app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

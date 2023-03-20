@@ -7,11 +7,9 @@
     android:paddingRight="60dp"
     android:clipToPadding="false">
 
-    <View
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avatar"
         android:layout_alignParentLeft="true"
-        android:scaleType="centerInside"
-        android:background="@drawable/circle"
         android:layout_width="34dp"
         android:layout_height="34dp" />
 
