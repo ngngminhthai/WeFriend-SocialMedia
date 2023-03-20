@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.content, new HomeFragment());
                         break;
                     case R.id.nav_follow:
-                        transaction.replace(R.id.content, new SearchFragment());
+                        transaction.replace(R.id.content, new AddPostFragment());
                         break;
                     case R.id.nav_add:
                         break;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
 
-        database.getReference("posts").push().setValue(new Post("Hello Kitty"));
+//        database.getReference("posts").push().setValue(new Post("Hello Kitty"));
 
     }
 
