@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.content, new HomeFragment());
                         break;
                     case R.id.nav_follow:
-                        transaction.replace(R.id.content, new AddPostFragment());
+                        transaction.replace(R.id.content, new SearchFragment());
                         break;
                     case R.id.nav_add:
                         break;

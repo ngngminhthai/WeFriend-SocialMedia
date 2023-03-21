@@ -62,7 +62,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
         }
 
 
-        /*FirebaseDatabase.getInstance().getReference().child("Users")
+        FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(model.getPostedBy()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -79,7 +79,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         FirebaseDatabase.getInstance().getReference()
                 .child("posts")
@@ -95,7 +95,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
                     holder.binding.like.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            FirebaseDatabase.getInstance().getReference()
+                            /*FirebaseDatabase.getInstance().getReference()
                                     .child("posts")
                                     .child(model.getPostId())
                                     .child("likes")
@@ -128,7 +128,102 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder> {
                                         }
                                     });
                                 }
-                            });
+                            });*/
+                            FirebaseDatabase.getInstance().getReference()
+                                    .child("posts")
+                                    .child(model.getPostId())
+                                    .child("likes")
+                                    .child(FirebaseAuth.getInstance().getUid())
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            if (dataSnapshot.exists() && dataSnapshot.getValue(Boolean.class)) {
+                                                // The current user has already liked the post, so unlike it
+                                                FirebaseDatabase.getInstance().getReference()
+                                                        .child("posts")
+                                                        .child(model.getPostId())
+                                                        .child("likes")
+                                                        .child(FirebaseAuth.getInstance().getUid())
+                                                        .setValue(false)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                FirebaseDatabase.getInstance().getReference()
+                                                                        .child("posts")
+                                                                        .child(model.getPostId())
+                                                                        .child("postLike")
+                                                                        .setValue(model.getPostLike() - 1)
+                                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                            @Override
+                                                                            public void onSuccess(Void aVoid) {
+                                                                                holder.binding.like.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_like, 0, 0, 0);
+                                                                                // Remove the notification if there is any
+                                                                                FirebaseDatabase.getInstance().getReference()
+                                                                                        .child("notification")
+                                                                                        .child(model.getPostedBy())
+                                                                                        .orderByChild("postID")
+                                                                                        .equalTo(model.getPostId())
+                                                                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                                            @Override
+                                                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                                                                                    snapshot.getRef().removeValue();
+                                                                                                }
+                                                                                            }
+
+                                                                                            @Override
+                                                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                                                            }
+                                                                                        });
+                                                                            }
+                                                                        });
+                                                            }
+                                                        });
+                                            } else {
+                                                // The current user has not liked the post yet, so like it
+                                                FirebaseDatabase.getInstance().getReference()
+                                                        .child("posts")
+                                                        .child(model.getPostId())
+                                                        .child("likes")
+                                                        .child(FirebaseAuth.getInstance().getUid())
+                                                        .setValue(true)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                FirebaseDatabase.getInstance().getReference()
+                                                                        .child("posts")
+                                                                        .child(model.getPostId())
+                                                                        .child("postLike")
+                                                                        .setValue(model.getPostLike() + 1)
+                                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                            @Override
+                                                                            public void onSuccess(Void aVoid) {
+                                                                                holder.binding.like.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_heart_2, 0, 0, 0);
+
+                                                                                Notification notification = new Notification();
+                                                                                notification.setNotificationBy(FirebaseAuth.getInstance().getUid());
+                                                                                notification.setNotificationAt(new Date().getTime());
+                                                                                notification.setPostID(model.getPostId());
+                                                                                notification.setPostedBy(model.getPostedBy());
+                                                                                notification.setType("like");
+
+                                                                                FirebaseDatabase.getInstance().getReference()
+                                                                                        .child("notification")
+                                                                                        .child(model.getPostedBy())
+                                                                                        .push()
+                                                                                        .setValue(notification);
+                                                                            }
+                                                                        });
+                                                            }
+                                                        });
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        }
+                                    });
+
 
                         }
                     });

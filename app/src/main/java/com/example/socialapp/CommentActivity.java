@@ -48,7 +48,7 @@ public class CommentActivity extends AppCompatActivity {
 
 //        setSupportActionBar(binding.toolbar3);
         CommentActivity.this.setTitle("Comments");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
