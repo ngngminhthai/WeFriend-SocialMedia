@@ -59,12 +59,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ChatActivity.class);
-                intent.putExtra("sender", FirebaseAuth.getInstance().getUid()); // replace JohnDoe with the actual username
-                intent.putExtra("receiver", user.getUserID()); // replace JohnDoe with the actual username
-                intent.putExtra("username", user.getName()); // replace JohnDoe with the actual username
+                intent.putExtra("sender", FirebaseAuth.getInstance().getUid());
+                intent.putExtra("receiver", user.getUserID());
+                intent.putExtra("username", user.getName());
 
                 if(user.getProfile() != null)
-                    intent.putExtra("imageUrl", user.getProfile()); // replace JohnDoe with the actual username
+                    intent.putExtra("imageUrl", user.getProfile());
                 else {
                     intent.putExtra("imageUrl", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fdefault-avatar-profile-icon-vector-social-media-user-portrait-image176256935&psig=AOvVaw1PvjBLNtzqrtldDN79Ms0P&ust=1679368955257000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKinv-PF6f0CFQAAAAAdAAAAABAE"); // replace JohnDoe with the actual username
 

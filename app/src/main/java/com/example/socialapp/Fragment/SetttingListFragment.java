@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ public class SetttingListFragment extends Fragment {
     FirebaseStorage storage;
     FirebaseAuth auth;
     TextView signOut;
+    TextView myProfile;
     public SetttingListFragment() {
         // Required empty public constructor
     }
@@ -68,6 +70,7 @@ public class SetttingListFragment extends Fragment {
         auth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
+
     }
 
     @Override
@@ -85,6 +88,27 @@ public class SetttingListFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        myProfile = view.findViewById(R.id.myProfile);
+        myProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an instance of AddPostFragment
+                Profile2Fragment fragment = new Profile2Fragment();
+
+                // Replace the current fragment with AddPostFragment
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return view;
+    }
+
+
+
+    public void myProfile(){
+
     }
 }
