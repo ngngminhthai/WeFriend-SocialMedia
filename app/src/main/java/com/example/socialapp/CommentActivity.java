@@ -46,7 +46,9 @@ public class CommentActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-//        setSupportActionBar(binding.toolbar3);
+
+        setSupportActionBar(binding.toolbar3);
+
         CommentActivity.this.setTitle("Comments");
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
