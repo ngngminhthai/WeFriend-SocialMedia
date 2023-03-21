@@ -18,6 +18,7 @@ import com.example.socialapp.Fragment.HomeFragment;
 import com.example.socialapp.Fragment.NotificationFragment;
 import com.example.socialapp.Fragment.Profile2Fragment;
 import com.example.socialapp.Fragment.SearchFragment;
+import com.example.socialapp.Fragment.SetttingListFragment;
 import com.example.socialapp.Model.Post;
 import com.example.socialapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -63,17 +64,25 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_profile:
                         transaction.replace(R.id.content, new NotificationFragment());
                         break;
+                    case R.id.menu_profile2:
+                        transaction.replace(R.id.content, new SetttingListFragment());
+                        break;
+
                 }
                 transaction.commit();
                 return true;
             }
         });
 
-        auth = FirebaseAuth.getInstance();
-        storage = FirebaseStorage.getInstance();
-        database = FirebaseDatabase.getInstance();
 
-//        database.getReference("posts").push().setValue(new Post("Hello Kitty"));
+
+
+      auth = FirebaseAuth.getInstance();
+      storage = FirebaseStorage.getInstance();
+       database = FirebaseDatabase.getInstance();
+
+
+      //  database.getReference("posts").push().setValue(new Post("Hello Kitty"));
 
     }
 
