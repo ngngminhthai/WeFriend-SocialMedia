@@ -4,7 +4,7 @@ Welcome to WeFriend, a social media application for Android! This README file pr
 
 ## Application Overview
 
-WeFriend is a social media platform that allows users to connect with friends, share posts, stories, comment on content, receive notifications, like posts, and add new friends. It provides a user-friendly interface and a range of features to enhance your social media experience.
+WeFriend is a social media platform that allows users to connect with friends, share posts, stories, comment on content, receive notifications, like posts, and add new friends using **Firebase**. It provides a user-friendly interface and a range of features to enhance your social media experience.
 
 ## Features
 
